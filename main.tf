@@ -27,7 +27,7 @@ resource "aws_route53_record" "ses_domain_dkim_record" {
 }
 
 resource "aws_route53_record" "ses_domain_verification_record" {
-  zone_id = var.var.zone_id
+  zone_id = var.zone_id
   name    = "_amazonses.${var.ses_domain}"
   type    = "TXT"
   ttl     = "600"
@@ -35,7 +35,7 @@ resource "aws_route53_record" "ses_domain_verification_record" {
 }
 
 resource "aws_route53_record" "ses_dmarc_record" {
-  zone_id = var.var.zone_id
+  zone_id = var.zone_id
   name    = "_dmarc.${var.ses_domain}"
   type    = "TXT"
   ttl     = "600"

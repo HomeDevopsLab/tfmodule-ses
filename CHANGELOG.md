@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [0.0.3] - 2024-11-30
+
+### Fixed
+
+- IAM user access key was missing
+
 ## [0.0.2] - 2024-11-30
 
 ### Fixed
@@ -27,5 +33,6 @@ and this project adheres to [Semantic Versioning].
 <!-- Versions -->
 <!-- [unreleased]: https://github.com/Author/Repository/compare/v0.0.2...HEAD -->
 
+[0.0.3]: https://gitlab.angrybits.pl/aws-services/terraform-modules/ses/-/compare/0.0.2...0.0.3?from_project_id=63&straight=false
 [0.0.2]: https://gitlab.angrybits.pl/aws-services/terraform-modules/ses/-/compare/0.0.1...0.0.2?from_project_id=63&straight=false
 [0.0.1]: https://gitlab.angrybits.pl/aws-services/terraform-modules/ses/-/tags/0.0.1

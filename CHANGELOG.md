@@ -27,5 +27,5 @@ and this project adheres to [Semantic Versioning].
 <!-- Versions -->
 <!-- [unreleased]: https://github.com/Author/Repository/compare/v0.0.2...HEAD -->
 
-[0.0.2]: https://gitlab.angrybits.pl/homelab/homelab-services/-/compare/0.0.1...0.0.2?from_project_id=63&straight=false
+[0.0.2]: https://gitlab.angrybits.pl/aws-services/terraform-modules/ses/-/compare/0.0.1...0.0.2?from_project_id=63&straight=false
 [0.0.1]: https://gitlab.angrybits.pl/aws-services/terraform-modules/ses/-/tags/0.0.1

@@ -64,3 +64,7 @@ resource "aws_iam_user_policy" "mailuser" {
   user = aws_iam_user.mailuser.name
   policy = data.aws_iam_policy_document.mailuser.json
 }
+
+resource "aws_iam_access_key" "iam_user" {
+  user = aws_iam_user.mailuser.name
+}

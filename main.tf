@@ -48,10 +48,10 @@ resource "aws_route53_record" "ses_dmarc_record" {
 
 data "aws_iam_policy_document" "mailuser" {
   statement {
-    effect = "Allow"
-    actions = ["ses:SendRawEmail"]
+    effect    = "Allow"
+    actions   = ["ses:SendRawEmail"]
     resources = ["*"]
-  } 
+  }
 }
 
 resource "aws_iam_user" "mailuser" {
@@ -60,8 +60,8 @@ resource "aws_iam_user" "mailuser" {
 }
 
 resource "aws_iam_user_policy" "mailuser" {
-  name = "send-email"
-  user = aws_iam_user.mailuser.name
+  name   = "send-email"
+  user   = aws_iam_user.mailuser.name
   policy = data.aws_iam_policy_document.mailuser.json
 }
 

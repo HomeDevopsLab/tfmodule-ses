@@ -1,22 +1,8 @@
-# Simple Email Service
-
-This Terraform module configures the SES service, which is used to send emails to a list of defined email addresses.
-
-## Inputs
-
-| Name                | Description                                        | Type          | Default | Required |
-|---------------------|----------------------------------------------------|---------------|---------|----------|
-| ses_domain          | Verified domain used for sending emails           | string        | None    | Yes      |
-| zone_id             | DNS zones id for email domain                     | string        | None    | Yes      |
-| ses_verified_emails | Email list, which can be set as destination emails | list(string)  | None    | Yes      |
-| smtp_username       | SMTP username for sending emails                  | string        | None    | Yes      |
-
-
-## Email Recieving
+# Email Recieving
 
 Submodule designed for recieving emails sent to defined address list.
 
-### Inputs
+## Inputs
 
 | Name                | Description                                              | Type         | Default | Required |
 | ------------------- | -------------------------------------------------------- | ------------ | ------- | -------- |

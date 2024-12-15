@@ -36,8 +36,5 @@ variable "domain_name" {
 }
 variable "dns_records" {
   description = "DNS records to create for the domain"
-  type = map(object({
-    mx  = list(string)
-    txt = list(string)
-  }))
+  type = map(list(string))
 }

@@ -23,3 +23,21 @@ variable "noreply_email" {
   description = "Email address to use as the sender of the bounce message"
   type        = string
 }
+
+variable "zone_id" {
+  description = "ID of the Route53 zone to create the MX record in"
+  type        = string
+}
+
+variable "domain_name" {
+  description = "Name of the domain to create the MX record for"
+  type        = string
+  
+}
+variable "dns_records" {
+  description = "DNS records to create for the domain"
+  type = map(object({
+    mx  = list(string)
+    txt = list(string)
+  }))
+}

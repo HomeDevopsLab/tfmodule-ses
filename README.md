@@ -25,3 +25,6 @@ Submodule designed for recieving emails sent to defined address list.
 | s3_bucket_name      | ID of the S3 bucket to store the email                   | string       | None    | Yes      |
 | lambda_function_arn | ARN of the Lambda function to forward the email          | string       | None    | Yes      |
 | noreply_email       | Email address to use as the sender of the bounce message | string       | None    | Yes      |
+| zone_id             | ID of the Route53 zone to create the MX record in        | string       | None    | Yes      |
+| domain_name         | Name of the domain to create the MX record for           | string       | None    | Yes      |
+| dns_records         | DNS records to create for the domain                     | map(object)  | None    | Yes      |

@@ -16,10 +16,25 @@ resource "aws_ses_domain_dkim" "ses_domain" {
 #
 # AWS Route53 DNS records used for proper domain setup
 #
+resource "aws_route53_record" "mx" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = var.ses_domain
+  type    = "MX"
+  ttl     = "300"
+  records = var.domain_records.mx
+}
+
+resource "aws_route53_record" "spf" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = var.ses_domain
+  type    = "TXT"
+  ttl     = "300"
+  records = var.domain_records.spf
+}
 
 resource "aws_route53_record" "ses_domain_dkim_record" {
   count   = 3
-  zone_id = var.zone_id
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = "${aws_ses_domain_dkim.ses_domain.dkim_tokens[count.index]}._domainkey"
   type    = "CNAME"
   ttl     = "600"
@@ -27,7 +42,7 @@ resource "aws_route53_record" "ses_domain_dkim_record" {
 }
 
 resource "aws_route53_record" "ses_domain_verification_record" {
-  zone_id = var.zone_id
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = "_amazonses.${var.ses_domain}"
   type    = "TXT"
   ttl     = "600"
@@ -35,36 +50,9 @@ resource "aws_route53_record" "ses_domain_verification_record" {
 }
 
 resource "aws_route53_record" "ses_dmarc_record" {
-  zone_id = var.zone_id
+  zone_id = data.aws_route53_zone.this.zone_id
   name    = "_dmarc.${var.ses_domain}"
   type    = "TXT"
   ttl     = "600"
   records = ["v=DMARC1; p=none; rua=mailto:postmaster@${var.ses_domain}"]
-}
-
-#
-# AWS SES SMTP credentials
-#
-
-data "aws_iam_policy_document" "mailuser" {
-  statement {
-    effect    = "Allow"
-    actions   = ["ses:SendRawEmail"]
-    resources = ["*"]
-  }
-}
-
-resource "aws_iam_user" "mailuser" {
-  name = var.smtp_username
-  path = "/"
-}
-
-resource "aws_iam_user_policy" "mailuser" {
-  name   = "send-email"
-  user   = aws_iam_user.mailuser.name
-  policy = data.aws_iam_policy_document.mailuser.json
-}
-
-resource "aws_iam_access_key" "iam_user" {
-  user = aws_iam_user.mailuser.name
 }

@@ -7,9 +7,8 @@ This Terraform module configures the SES service, which is used to send emails t
 | Name                | Description                                        | Type         | Default | Required |
 | ------------------- | -------------------------------------------------- | ------------ | ------- | -------- |
 | ses_domain          | Verified domain used for sending emails            | string       | None    | Yes      |
-| zone_id             | DNS zones id for email domain                      | string       | None    | Yes      |
 | ses_verified_emails | Email list, which can be set as destination emails | list(string) | None    | Yes      |
-| smtp_username       | SMTP username for sending emails                   | string       | None    | Yes      |
+| domain_records      | Basic DNS records related to mail handling         | object       | None    | Yes      |
 
 ## Email Recieving
 

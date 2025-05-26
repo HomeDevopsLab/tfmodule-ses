@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
+## [1.0.0] - 2025-05-26
+
+### Added
+
+- data source to obtain dns zone id
+
+### Removed
+
+- IAM User creation
+- variable to pass zone_id
+
 ## [0.2.1] - 2024-12-15
 
 ### Fixed

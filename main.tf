@@ -16,6 +16,21 @@ resource "aws_ses_domain_dkim" "ses_domain" {
 #
 # AWS Route53 DNS records used for proper domain setup
 #
+resource "aws_route53_record" "mx" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = var.ses_domain
+  type    = "MX"
+  ttl     = "300"
+  records = var.domain_records.mx
+}
+
+resource "aws_route53_record" "spf" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = var.ses_domain
+  type    = "TXT"
+  ttl     = "300"
+  records = var.domain_records.spf
+}
 
 resource "aws_route53_record" "ses_domain_dkim_record" {
   count   = 3

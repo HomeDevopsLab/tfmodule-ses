@@ -53,13 +53,3 @@ resource "aws_ses_receipt_rule" "reject" {
     position = 2
   }
 }
-
-resource "aws_route53_record" "this" {
-  for_each = var.dns_records
-
-  zone_id = var.zone_id
-  name    = var.domain_name
-  type    = upper(each.key)
-  ttl     = 300
-  records = each.value
-}

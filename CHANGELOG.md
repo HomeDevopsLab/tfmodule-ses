@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
+## [2.0.0] - 2025-05-29
+
+### Removed
+- route53 resources are removed from email_recieving
+
 ## [1.0.0] - 2025-05-26
 
 ### Added
